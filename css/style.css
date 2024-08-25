@@ -75,7 +75,7 @@ nav ul li a {
 
 nav ul li a:hover {
     color: var(--color-green-dark);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .cta-button {
