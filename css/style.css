@@ -127,14 +127,16 @@ nav ul li a:hover {
     font-size: 4rem;
     font-weight: 700;
     margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-out;
 }
 
 .hero p {
     font-size: 1.25rem;
     margin-bottom: 30px;
+    animation: fadeIn 2s ease-out;
 }
 
-.hero a {
+.hero .btn-1 {
     background-color: var(--color-green-light);
     color: var(--color-blue-dark);
     padding: 15px 30px;
@@ -142,12 +144,52 @@ nav ul li a:hover {
     text-decoration: none;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 2.5s ease-out;
 }
 
-.hero a:hover {
-    background-color: var(--color-green-dark);
+.hero .btn-1:hover {
+    background-color: var(--color-beige);
     color: var(--color-white);
-    transform: translateY(-3px);
+    transform: translateY(10px);
+}
+
+.hero .btn-2 {
+    background-color: var(--color-beige);
+    color: var(--color-white);
+    padding: 15px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 2.5s ease-out;
+}
+
+.hero .btn-2:hover {
+    background-color: var(--color-green-light);
+    color: var(--color-white);
+    transform: translateY(10px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Section Styles */
@@ -155,22 +197,118 @@ section {
     padding: 60px 0;
 }
 
-#mission {
+#about {
     background-color: var(--color-beige);
+    padding: 3rem 0;
 }
 
-#mission p {
+#about h2 {
+    color: var(--color-green-dark);
+    animation: fadeIn 2s ease-in-out;
+}
+
+#about p {
+    color: var(--color-dark-gray);
+    line-height: 1.6;
+}
+
+#about ul,
+#about ol {
     color: var(--color-dark-gray);
 }
 
-#mission .text-center {
+#about .text-center {
     color: var(--color-green-dark);
 }
 
-#solutions {
-    background-color: var(--color-light-gray);
+.counter {
+    position: relative;
 }
 
+.counter .h2 {
+    font-size: 2.5rem;
+    color: var(--color-green-dark);
+    margin-bottom: 0.5rem;
+}
+
+.counter p {
+    font-size: 1rem;
+    color: var(--color-dark-gray);
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.counter.animate .h2 {
+    animation: countUp 1s ease-in-out forwards;
+}
+
+#solutions {
+    background-color: var(--color-beige);
+}
+
+#tips {
+    background-color: #f8f9fa;
+    /* Light background color */
+    padding: 60px 0;
+}
+
+.tip-box {
+    background: #ffffff;
+    /* White background for each tip box */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+.tip-box:hover {
+    transform: translateY(-10px);
+    /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow on hover */
+}
+
+.tip-title {
+    font-size: 1.5rem;
+    color: var(--color-blue-light);
+}
+
+.tip-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tip-list li {
+    font-size: 1rem;
+    color: #555555;
+    position: relative;
+    padding-left: 25px;
+}
+
+.tip-list li::before {
+    content: "-";
+    color: #00796b;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
+}
+
+#tips p {
+    font-size: 1rem;
+    color: #555555;
+}
 #solutions img {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -261,4 +399,146 @@ footer {
 
 footer p {
     color: var(--color-white);
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+
+    /* Header */
+    header .container {
+        padding: 10px 20px;
+    }
+
+    .logo img {
+        height: 60px;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+    }
+
+    .cta-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    /* Hero Section */
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero .btn-1,
+    .hero .btn-2 {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* About Section */
+    #about .text-center {
+        text-align: center;
+    }
+
+    #about .counter .h2 {
+        font-size: 2rem;
+    }
+
+    /* Sustainability Tips */
+    .tip-box {
+        margin: 20px 0;
+    }
+
+    .tip-title {
+        font-size: 1.25rem;
+    }
+
+    .tip-list li {
+        font-size: 0.9rem;
+    }
+
+    /* Solutions Section */
+    #solutions .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Contact Section */
+    #contact .form-group {
+        margin-bottom: 1rem;
+    }
+
+    #contact input,
+    #contact textarea {
+        font-size: 0.9rem;
+    }
+
+    #contact button {
+        font-size: 0.9rem;
+    }
+
+    #contact .social-icons a {
+        font-size: 20px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+
+    /* Header */
+    header .container {
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .cta-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        height: auto;
+        padding: 80px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .hero .btn-1,
+    .hero .btn-2 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
 }
